@@ -11,6 +11,25 @@ ks_table = {1: 0.975, 2: 0.84189, 3: 0.7076, 4: 0.62394, 5: 0.56328, 6: 0.51926,
 
 
 def verifyKSTest(csvPath):
+    """
+    Performs a Kolmogorov-Smirnov (KS) test to verify if a sequence of numbers in a CSV file
+    follows a uniform distribution. This test compares the empirical cumulative distribution function (CDF)
+    of the data with the expected CDF for a uniform distribution and calculates the KS statistic.
+
+    Args:
+        csvPath (str): The path to the CSV file containing the sequence of numbers to analyze.
+
+    Returns:
+        tuple: A tuple containing the following values:
+            - ks_result (str): The result of the KS test as a string ("Pass" or "Fail").
+            - min_value (float): The minimum value in the sequence of numbers.
+            - interval_size (float): The size of each data interval.
+            - quantity_by_interval (list): A list containing the count of data points in each interval.
+            - expected_frequency (float): The expected frequency in each interval.
+            - overall_frequency (list): A list containing the differences between the expected and observed frequencies in each interval.
+            - sample_size (int): The size of the sample of data.
+
+    """
     result = []
     reader = cr.getListRi(csvPath)
 
@@ -41,6 +60,15 @@ def verifyKSTest(csvPath):
 
 
 def findValueKs(value: int):
+    """
+    Finds the critical value for the Kolmogorov-Smirnov (KS) test based on the specified value.
+
+    Args:
+        value (int): The integer value for which to find the KS critical value.
+
+    Returns:
+        float: The critical value for the KS test.
+    """
     if value <= 50:
         return ks_table[value]
     else:
@@ -48,6 +76,17 @@ def findValueKs(value: int):
 
 
 def verifyKsTable(ksValue: int, number: int):
+    """
+    Verifies if a given Kolmogorov-Smirnov (KS) statistic value is greater than a specified critical value.
+
+    Args:
+        ksValue (int): The Kolmogorov-Smirnov (KS) statistic value to be compared with the critical value.
+        number (int): The critical value for the KS test.
+
+    Returns:
+        bool: True if the KS statistic value is greater than the critical value, False otherwise.
+
+    """
     if ksValue > number:
         return True
     else:

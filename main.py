@@ -16,51 +16,7 @@ import csv
 
 
 class meanTestFrame(ttk.Frame):
-    # pestaña 1
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # widgets
-        # label path
-        self.isMeans = tk.IntVar()
-        self.isVariance = tk.IntVar()
-        self.isKs = tk.IntVar()
-        self.isChi = tk.IntVar()
-        self.isPoker = tk.IntVar()
-        
-        # label de verificacion
-        
-
-        # checkBox medias
-        checkboxMeans = tk.Checkbutton(self, text="Prueba de Medias", variable=self.isMeans)
-        checkboxMeans.grid(row=2, column=0, padx=12, pady=12, sticky="W")
-
-        # checkBox varianza
-        checkboxVariance = tk.Checkbutton(self, text="Prueba de varianza", variable=self.isVariance)
-        checkboxVariance.grid(row=3, column=0, padx=12, pady=12, sticky="W")
-
-        # checkBox ks
-        checkboxKs = tk.Checkbutton(self, text="Prueba de ks", variable=self.isKs)
-        checkboxKs.grid(row=4, column=0, padx=12, pady=12, sticky="W")
-
-        # checkBox chi
-        checkboxChi = tk.Checkbutton(self, text="Prueba de chi", variable=self.isChi)
-        checkboxChi.grid(row=5, column=0, padx=12, pady=12, sticky="W")
-
-        # checkBox chi
-        checkboxPoker = tk.Checkbutton(self, text="Prueba de poker", variable=self.isPoker)
-        checkboxPoker.grid(row=6, column=0, padx=12, pady=12, sticky="W")
-
-        # Boton Adelante
-        self.gAd = ttk.Button(
-            self, text="Realizar pruebas", command=self.createWindowTable)
-        self.gAd.grid(row=7, column=1, padx=10, pady=10)
-
-    ############## Funciones ###############
-
-
-
-
-class meanTestFrame(ttk.Frame):
+    # pestaña Prueba de medias
     def __init__(self,parent_file_upload, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent_file_upload = parent_file_upload
@@ -81,6 +37,7 @@ class meanTestFrame(ttk.Frame):
         
 
 class VarianceTestFrame(ttk.Frame):
+    # pestaña Prueba de Varianza
     def __init__(self, parent_file_upload, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent_file_upload = parent_file_upload
@@ -101,6 +58,7 @@ class VarianceTestFrame(ttk.Frame):
 
 
 class ChiSquareTestFrame(ttk.Frame):
+    # pestaña Prueba de chi2
     def __init__(self, parent_file_upload, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent_file_upload = parent_file_upload
@@ -156,6 +114,7 @@ class ChiSquareTestFrame(ttk.Frame):
 
         
 class KSTestFrame(ttk.Frame):
+    # pestaña Prueba de KS
     def __init__(self, parent_file_upload, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent_file_upload = parent_file_upload
@@ -204,6 +163,7 @@ class KSTestFrame(ttk.Frame):
 
 
 class fileUpload(ttk.Frame):
+    # pestaña para subir archivo
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.verifyLabel = tk.Label(self)
@@ -234,6 +194,7 @@ class fileUpload(ttk.Frame):
         self.verifyLabel.grid(row=0, column=3, padx=10, pady=10)
 
 class pokerFrame(ttk.Frame):
+    # pestaña Prueba de Poker
     def __init__(self,parent_file_upload ,*args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent_file_upload = parent_file_upload
@@ -284,7 +245,6 @@ class pokerFrame(ttk.Frame):
         self.totalFrequencyLabel["text"] = "Frecuencia acumulada obtenida: {}\nValor maximo que puede tener la frecuencia acumulada: {}".format(pokerResult[4],pokerResult[3]) 
         self.totalFrequencyLabel.grid(row=3, column=0, padx=10, pady=5, sticky="w")
 
-########################################
 # Configuracion de pestañas
 class Interface(ttk.Frame):
     
